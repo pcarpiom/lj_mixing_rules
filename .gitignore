@@ -1,11 +1,11 @@
 *.ipynb
 
 # Jupyter notebooks
-notebooks/*.ipynb
-notebooks/*.py
-notebooks/*.csv
-notebooks/*.xyz
-notebooks/*.txt
+*.ipynb
+*.py
+*.csv
+*.xyz
+*.txt
 
 .ipynb_checkpoints
 
