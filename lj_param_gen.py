@@ -1,15 +1,8 @@
-import argparse
-import numpy as np
-import pandas as pd 
+import numpy as np 
+import pandas as pd
 
-parser = argparse.ArgumentParser()
-parser.add_argument('input_file', help='enter xyz file')
-args = parser.parse_args()
+input_file = open('parameters_file.txt','r')
+lines = input_file.readlines()
 
-#read input parameters
-
-file = open(args.input_file, 'r')
-n_params = sum(1 for line in file)
-file = open(args.input_file, 'r')
-
-print(file)
+for l in lines:
+    print(l.split())
