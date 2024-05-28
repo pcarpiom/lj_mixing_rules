@@ -42,8 +42,11 @@ for i in range(len(index)):
     for j in range(len(index)):
         if j >= i:
             if (lj_type[i] == '9') and (lj_type[j] == '9'):
-                print(i + 1, j + 1, "%.7f" % float(epsilons_out[[i],[j]]), "%.7f" % float(sigmas_out[[i],[j]]))
+                print(i + 1, j + 1, "%.7f" % float(epsilons_out[[i],[j]]), 
+                    "%.7f" % float(sigmas_out[[i],[j]]) + '  lj/class2/coul/long')
             elif (lj_type[i] == '12') and (lj_type[j] == '9'):
-                print(i + 1, j + 1, "%.7f" % float(epsilons_out[[i],[j]]), "%.7f" % float(sigmas_out[[i],[j]]))
+                print(i + 1, j + 1, "%.7f" % float(epsilons_out[[i],[j]]), 
+                    "%.7f" % float(sigmas_out[[i],[j]]) + '  lj/class2/coul/long')
             else:
-                print(i + 1, j + 1, "%.7f" % float(epsilons_out[[i],[j]]), "%.7f" % float(sigmas_out[[i],[j]]))
+                print(i + 1, j + 1, "%.7f" % float(epsilons_out[[i],[j]]), 
+                    "%.7f" % float(sigmas_out[[i],[j]]) + '  lj/cut/coul/long')

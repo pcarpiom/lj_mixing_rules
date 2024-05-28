@@ -1,10 +1,4 @@
 *.ipynb
-
-# Jupyter notebooks
-*.ipynb
-*.py
-*.csv
-*.xyz
 *.txt
 
 .ipynb_checkpoints
