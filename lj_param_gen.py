@@ -1,7 +1,14 @@
 import numpy as np 
 import pandas as pd
+import argparse
 
-input_file = open('parameters_file.txt','r')
+parser = argparse.ArgumentParser()
+parser.add_argument('input_file',help='enter txt file')
+args = parser.parse_args()
+
+# read .xyz file
+
+input_file = open(args.input_file, 'r')
 lines = input_file.readlines()
 
 index = []
