@@ -1,5 +1,5 @@
 # lj_mixing_rules
-This script creates combining rules from a set of 12-6/9-6 epsilon/sigma parameters. The input file is a .txt with the following four column format: Index LJ-type* Epsilon Sigma (see example below)
+This script creates combining rules from a set of 12-6/9-6 epsilon/sigma parameters. The input file is a .txt with the following format: Index LJ-type* Epsilon Sigma (see example below)
 ```
 8	12	0.0940000	3.1700000  
 9	12	0.1220000	3.4700000 
