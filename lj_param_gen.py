@@ -23,6 +23,19 @@ for i in lines:
     epsilon.append(float(line[2]))
     sigma.append(float(line[3]))
 
+#define functions
+
+# 9-6 mixing rule 
+def espsilon_ljtype9(e1, s1, e2, s2):
+    return (2*np.sqrt(e1*e2)*(s1**3)*(s2**3))/((s1**6)+(s2**6))
+def sigma_ljtype9(s1, s2):
+    return (((s1**6 + s2**6)/2))**(1/6)
+# 12-6 mixing rule
+def espsilon_ljtype12(e1, e2):
+    return np.sqrt(epsilon[i]*epsilon[j])
+def sigma_ljtype12(s1, s2):
+    return (sigma[i] + sigma[j])/2
+
 #initialize parameter matrix
 sigmas_out = np.matrix([[0]*index[-1]]*index[-1], dtype=np.float64)
 epsilons_out = np.matrix([[0]*index[-1]]*index[-1], dtype=np.float64)
@@ -33,17 +46,17 @@ for i in range(len(index)):
     for j in range(len(index)):
         #compute pure 9-6 lj parameters
         if (lj_type[i] == '9') and (lj_type[j] == '9'):
-            epsilons_out[[i],[j]] = (2*np.sqrt(epsilon[i]*epsilon[j])*(sigma[i]**3)*(sigma[j]**3))/((sigma[i]**6)+(sigma[j]**6))
-            sigmas_out[[i],[j]] = (((sigma[i]**6 + sigma[j]**6)/2))**(1/6)
+            epsilons_out[[i],[j]] = espsilon_ljtype9(epsilon[i], epsilon[j], sigma[i], sigma[j]) 
+            sigmas_out[[i],[j]] = sigma_ljtype9(sigma[i], sigma[j])
         #compute mixed parameters 
         elif (lj_type[i] == '12') and (lj_type[j] == '9'):
             sigma[i] = sigma[i]*(2**(1/6))
-            epsilons_out[[i],[j]] = (2*np.sqrt(epsilon[i]*epsilon[j])*(sigma[i]**3)*(sigma[j]**3))/((sigma[i]**6)+(sigma[j]**6))
-            sigmas_out[[i],[j]] = (((sigma[i]**6 + sigma[j]**6)/2))**(1/6)
+            epsilons_out[[i],[j]] = espsilon_ljtype9(epsilon[i], epsilon[j], sigma[i], sigma[j]) 
+            sigmas_out[[i],[j]] = sigma_ljtype9(sigma[i], sigma[j])
         #compute pure 12-6 parameters
         else:
-            epsilons_out[[i],[j]] = np.sqrt(epsilon[i]*epsilon[j])
-            sigmas_out[[i],[j]] = (sigma[i] + sigma[j])/2
+            epsilons_out[[i],[j]] = espsilon_ljtype12(epsilon[i], epsilon[j]) 
+            sigmas_out[[i],[j]] = sigma_ljtype12(sigma[i], sigma[j])
 
 for i in range(len(index)):
     for j in range(len(index)):
