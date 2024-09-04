@@ -58,15 +58,16 @@ for i in range(len(index)):
             epsilons_out[[i],[j]] = espsilon_ljtype12(epsilon[i], epsilon[j]) 
             sigmas_out[[i],[j]] = sigma_ljtype12(sigma[i], sigma[j])
 
-for i in range(len(index)):
-    for j in range(len(index)):
-        if j >= i:
-            if (lj_type[i] == '9') and (lj_type[j] == '9'):
-                print('pair_coeff  ', i + 1, j + 1, ' lj/class2/coul/long  ',
-                       "%.7f" % float(epsilons_out[[i],[j]]), "%.7f" % float(sigmas_out[[i],[j]]) )
-            elif (lj_type[i] == '12') and (lj_type[j] == '9'):
-                print('pair_coeff  ', i + 1, j + 1, ' lj/class2/coul/long  ',
-                       "%.7f" % float(epsilons_out[[i],[j]]), "%.7f" % float(sigmas_out[[i],[j]]) )
-            else:
-                print('pair_coeff  ', i + 1, j + 1, ' lj/cut/coul/long     ', 
-                      "%.7f" % float(epsilons_out[[i],[j]]),  "%.7f" % float(sigmas_out[[i],[j]]) )
+with open('lj_parameters.out', 'w') as f:
+    for i in range(len(index)):
+        for j in range(len(index)):
+            if j >= i:
+                if (lj_type[i] == '9') and (lj_type[j] == '9'):
+                    print('pair_coeff  ', i + 1, j + 1, ' lj/class2/coul/long  ',
+                           "%.7f" % float(epsilons_out[[i],[j]]), "%.7f" % float(sigmas_out[[i],[j]]), file=f)
+                elif (lj_type[i] == '12') and (lj_type[j] == '9'):
+                    print('pair_coeff  ', i + 1, j + 1, ' lj/class2/coul/long  ',
+                           "%.7f" % float(epsilons_out[[i],[j]]), "%.7f" % float(sigmas_out[[i],[j]]), file=f)
+                else:
+                    print('pair_coeff  ', i + 1, j + 1, ' lj/cut/coul/long     ', 
+                          "%.7f" % float(epsilons_out[[i],[j]]),  "%.7f" % float(sigmas_out[[i],[j]]), file=f)
