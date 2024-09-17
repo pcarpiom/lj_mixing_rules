@@ -1,11 +1,11 @@
 # lj_mixing_rules
 This script creates combining rules from a set of 12-6/9-6 epsilon/sigma parameters. The input file is a .txt with the following format: Index LJ-type* Epsilon Sigma (see example below)
 ```
-8	12	0.0940000	3.1700000  
-9	12	0.1220000	3.4700000 
-10	12	0.0930000	4.1500000 
-11	9	0.0680000	3.9150000 
-12	9	0.0680000	3.9150000 
+1	12	0.0940000	3.1700000  
+2	12	0.1220000	3.4700000 
+3	12	0.0930000	4.1500000 
+4	9	0.0680000	3.9150000 
+5	9	0.0680000	3.9150000 
 ```
 *LJ-type refers to the Lennard-Jones potential type. Two types are implemented 
  
