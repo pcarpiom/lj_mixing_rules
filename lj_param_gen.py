@@ -26,14 +26,17 @@ for i in lines:
 #define functions
 
 # 9-6 mixing rule 
-def espsilon_ljtype9(e1, s1, e2, s2):
+def espsilon_ljtype9(e1, s1, e2, s2) -> float:
     return (2*np.sqrt(e1*e2)*(s1**3)*(s2**3))/((s1**6)+(s2**6))
-def sigma_ljtype9(s1, s2):
+    
+def sigma_ljtype9(s1, s2) -> float:
     return (((s1**6 + s2**6)/2))**(1/6)
+    
 # 12-6 mixing rule
-def espsilon_ljtype12(e1, e2):
+def espsilon_ljtype12(e1, e2) -> float:
     return np.sqrt(epsilon[i]*epsilon[j])
-def sigma_ljtype12(s1, s2):
+    
+def sigma_ljtype12(s1, s2) -> float :
     return (sigma[i] + sigma[j])/2
 
 #initialize parameter matrix
